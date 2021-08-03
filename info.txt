@@ -1,0 +1,10 @@
+Los componentes vulven a renderizar si:
+    - un estado cambia
+    - un prop cambia
+    - 
+
+Por lo general siempre es mejor usar States. Porque algo de un componente cambia, todo se 
+refresca la pagina, por lo que usar "const" es poco practico
+
+Los states solamente se recrean cuando vos ejecutas su funcion de cambio sino no se 
+recrean por mas que sean variables locales y sean hijos del componente "App" en este caso
