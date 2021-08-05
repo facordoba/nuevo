@@ -1,5 +1,5 @@
 const CartWidgets = () =>
-
-        <p>Icono</p>
-
+        <>
+           <p>Icono</p>
+        </>
 export default CartWidgets

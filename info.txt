@@ -8,3 +8,196 @@ refresca la pagina, por lo que usar "const" es poco practico
 
 Los states solamente se recrean cuando vos ejecutas su funcion de cambio sino no se 
 recrean por mas que sean variables locales y sean hijos del componente "App" en este caso
+
+
+
+                            AFTER CLASE CINCO
+
+No tenemos que modifiar directamente el dom osea innerText y eso para modificar etiquetas, 
+porque tenemos qeu cambiar el virtual DOM porque esoy trabajando el react y el se escarga de cambiar el DOM
+
+React reejuta todo el componente por cada modificacion, renderiza todo de nuevo
+En react tenemos ciclos de vida y estados
+
+Toda la info fija hay que tenerla en un state, todo lo que esta en un state no se resderiza esa info
+
+Esto hay que hacerlo con HOOKS, todos los HOOKS son funciones y todos tienen funciones distintas. El HOOK de estado 
+es el "useState"
+
+Cuando uso un "useState" siempre recibo un array: ESTOS DOS EJEMPLOS SON LO MISMO EL PRIMERO ES CON DESTRUCTORING
+
+
+        const [contador, setContador] = useState(0)
+
+       const resultado = useState(0) 
+          const contador = resultado[0]
+        const setContador = resultado[1]
+
+Con el "useState" si cambias de estado se te devuelve el cambio en el virtual dom automaticamente
+Se importan donde los queres usar
+
+Puedo iniciar un estado undefined y cambiarlo eventualmente ej:
+                const resultado = useState() ESTO ESTA VACIO, DEVUELVE undefined
+
+El array del states tiene dos cosas, el primero es el estado de la varieble y el segundo una funcion
+
+Un estado se puede inicializar con lo que quiera hasta con un PROP
+
+Si tenes muchos datos para hacerle state conviene tener muchos states antes que hacer descrutoring siempre
+
+
+
+                                    TRABAJAR CON UNA FUNCION COMO PROP
+Puede ser asi: fuera del return
+
+const onAdd = a => console.log("La cantidad es: " + a)
+<ItemCount stock={3} initial={0} onAdd={ onAdd }
+
+o dentro del return
+
+<ItemCount stock={3} initial={0} onAdd={ a => console.log("La cantidad seleccionada es: " + a) }
+
+
+
+
+
+
+
+
+
+                                    CLASE SEIS
+
+Iniciar = montar = renderizar = arranca la aplicaion
+  
+Repasar funciones por defecto en JS -- Entender los componentes tipo clases(como funcionan y que son)
+
+Los componentes se van a volver a renderizar cuando cambia su estado o sus props
+En un componente tipo fucion, por cada cambio el componente y todos sus hijos se vulven a rejecutar. tambien cuando
+el padre se vulve a rejecutar
+
+¿scss?
+
+Gonzalo pozzo
+Toto ruffa
+https://codigofacilito.com/
+
+
+Investigar cuando carga cada cosa en el browser
+
+tengo que ir tendiendo en cuenta los momentos del ciclo de vida, para esto uso el hook en un componente de tipo 
+funcion, como no tengo los metodos de las clases, lo tengo simular con un hook que se llama "useEffect"
+Este sirve para hacer un "efecto secundario"
+"efecto secundario" : cualquier otra cosa que no sea el dibujar en pantalla, por ejemplo, dps de que algo de monte 
+en pantalla
+"efecto primario" : render
+
+Esto de dps del render se va a usar tipicamente para poder info a un API, traer la info y mostrarlo.
+Lo de antes tambien se puede inciar timers y demaces 
+
+
+Esto de los HOOKs no puede estar dentro de un if y siempre dentro de un componente
+
+"useEffect" no se iguala a una const. Se encarga de hacer cosas dps del render del componente en el que esta
+useEffect(function [,array])
+el array el optativo, puede estar o no
+useEffect(a,b)
+useEffect(a)
+
+un array vacio como segundo parametro significa que se realiza una sola vez el efecto, osea una vez dps del primer
+render
+
+ej: 
+  useEffect(
+   ()=>{
+      console.log("bla") } , [] )
+
+
+
+No me acurdo que es esto : 
+
+/* const datos=[{dato:"bueno"}, {dato:"malo"}]
+  const nombre="Facundo" */
+  //const contador = 0
+
+
+
+
+
+                                      CONCEPTO DIFICIL
+Sincronia: o bloqueante
+
+
+Asincronia: la gran mayoria de operaciones en JS son Asincronicas
+    fech? - setTiomeOut? - setInterval? - cache? 
+
+
+    como y para que hacer un delay en JS
+
+    si una operacion es sincronica, JS la ejecuta en paralelo para que pedas seguir navegando y no se bloquee nada 
+    de la pagina. Es algo que no se programa, JS lo hace solo
+
+    EVENTOS
+
+    practicar operaciones que dependen de operaciones, ej: una funcion dentro de la otra.
+    En react a esto se le llama "Callback of Hell" - "Piramid of DOM"
+
+    Para que esto no pase se invento el Promise :  como funciona? 
+
+    setTimeout(function, tiempo en segundos o ms nose) es una operacion que tarde en el tiempo
+
+    premise.then() = cuando la promesa termina sin ningun error
+    promise.catch() = cuando la promesa termina pero hay error
+
+
+    promise : es un objeto que representa una operacion que perdura en el tiempo, va a tener como 
+    props un estado(que se notifica a travez del then y catch) 
+    y un value, que es el valor final de la operacion 
+    Los dos parametros son funciones (resolver, rechazar), los podes trabajar o no 
+
+    Lo que pongas como valor de respuesta lo pudes usar fuera de la funcion. Lo que no pasa en AJAX
+    Las puedo usar en el then
+
+
+
+    PROMESAAAAAS:
+
+      Sincronico y asincronico
+
+      Sincronico o bloqueante: un for que tarde mucho tiempo ejecutandose, esto hace que se bloquee el codigo
+      hasta que termine 
+
+
+
+      Asincronico o no bloqueante : mandas eso que va a tardar en ejecutarse a otro lugar para que el codigo siga
+      corriendo sin bloquearse. Por ejemplo, setTimeout.
+      Hay tres "categorias" de asincronia, una son cosas asincronicas por timers como setTimeout, setInterval y setImmidiate.
+      
+      Otra categoria son los triggers, conocidos como eventos. Triggers(eventos), por ejemplo onClick, onSubmit, etc. Estos 
+      eventos se quedan como esperando en otro lugar a que se ejecuten. Los Callback de los eventos o triggres siempre te
+      van a devolver la info de los eventos ((es el parametro "e" de la funcion de un addEventListener))
+
+      Otra es requests(ajax-fetch-XHR) cosas que podes hacer con JS para pedir info, a una Api o lo que sea 
+
+      Siempre necesitas saber cuando algo asincronico termina, JS te avisa con CallBacks
+
+
+      La Api de promise te permite hacer el CallBack of hell de una manera mas ordenada, la promise te va a decir cuando
+      una aplicacion termina y si termino bien o mal
+
+
+
+La promise te va a dar un objeto con toda la informacion de lo que vaya a pasar, por ejemplo un pedido a un servidor
+en ese caso la promesa va a ser un objeto que represente que esta pasando en el pedido.
+
+
+Si estas haciendo la promesa a mano vos tenes que cambiar el estado
+
+
+
+DATA:
+  patron de react--> usualmente necesitamos tres componentes, el container, la lista y el item
+
+
+
+
+
