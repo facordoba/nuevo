@@ -145,7 +145,7 @@ Asincronia: la gran mayoria de operaciones en JS son Asincronicas
 
     setTimeout(function, tiempo en segundos o ms nose) es una operacion que tarde en el tiempo
 
-    premise.then() = cuando la promesa termina sin ningun error
+    promise.then() = cuando la promesa termina sin ningun error
     promise.catch() = cuando la promesa termina pero hay error
 
 
@@ -159,7 +159,16 @@ Asincronia: la gran mayoria de operaciones en JS son Asincronicas
 
 
 
+
+
+
+
     PROMESAAAAAS:
+
+
+
+
+
 
       Sincronico y asincronico
 
@@ -198,6 +207,79 @@ DATA:
   patron de react--> usualmente necesitamos tres componentes, el container, la lista y el item
 
 
+
+Ejemplo after promise:
+
+const [users, setUsers] = useState([])
+    useEffect(()=>{
+
+        //Estado : pending - fulfilled/resolved - rejected
+        //Resultado : cualquier cosa (un array, un numero, etc)
+        const test = new Promise((resolve, reject)=>{  //Ambos parametros son funciones , la resolve es para cambiar el estado
+                                                        // de pending a fulfilled y la otra es cambiar el estado de pending 
+                                                        //a rejected
+      
+          resolve(users.map(e=>e.names))
+        })
+      
+        console.log(test)
+      
+        const test1 = test.then((a)=>{   //este then agarra el valor que de "users.map(e=>e.names)" y lo puede usar
+          console.log(a) // imprime un array con los valores de names
+          return a[0] // retorna el primer valor del array
+        })
+      
+        test1.then((a)=>{ //agarra el primer valor del array
+          console.log(a.toUpperCase()) //imprime ese primer valor del array pero en mayusculas
+        })
+      
+    }, [])
+
+
+
+
+
+
+
+
+--------------------------------------CLASE SIETE---------------------
+
+Vos tenes una operacion que va a tardar mucho en el tiempo, entonces vos la pones dentro de un promesa, 
+y esta te va a ir diciendo como va a vanzando el proceso, osea, te va a ir diciendo esto todavia esta pediente, esto ya 
+termino y asi. Sirve para eso y para rreglar el Callback of hell
+
+[[[[[[[[[[[[Hacer la prueba con lo que sacar datos de otro componente de una mnera direfente o sin usar hooks]]]]]]]]]]]]
+
+axios libreria que unifica fetch y XHR (hoy en dia no es taaaan util)
+
+
+vamos a usar fetch
+
+
+IRC? POP? MAP?
+HTTP: es un procolo de comunicacion entre dos sistemas. Este protocolo se encarga de como dos maquienas distintas van a 
+transferirse informacion. Dentro de este procotolo existe es sistema de cliente - servidor. El cliente es el que incia
+el pedido y el que responde es la maquina servidora.
+Para que el sistema funcione tiene que pasar unas reglas. Como cliente es obligatoria la URL, el metodo/verbo, 
+opcionales: headers, body, version de HTTP (HTTP 1.1)
+el header lo podes googlear osea headers de HTTP (top 10 header HTTP)
+un header que es muy comun es el content-type: sirve para que una maquina le diga a la otra que formato es el dato
+                                  cache-control: le dice a otra maquina que no guarde la rpta en el cache
+                                  user-angent: le dice a otra maquina que tipo de navegador tenes
+
+
+
+El servidor me va a mandar unos datos que son: version del HTTP, status y  mensaje, opcionales: headers, body. El mensaje
+y el status son lo mismo pero escrito diferente
+
+
+Metodo: representa la intencion que tiene el cliente sobre el servidor. Ej, get, post, patch, delete, put
+
+cuando haces un pedido el servidor devuelve un codigo o status.
+codigos: 200 - esta todo bien
+          302 y 304 - 
+          400, 401, 403, 404, 405 - error
+          500 - esta todo mal
 
 
 

@@ -1,12 +1,13 @@
-import ItemCount from "./ItemCount"
+/* import ItemCount from "./ItemCount" */
 import { useEffect } from "react"
 import { useState } from "react"
 import  mock from "./mock.json"
-import ItemList from "./ItemList"
+/* import ItemList from "./ItemList" */
+import ItemDetail from "./ItemDetail"
 const ItemListContainer = ({greeting}) =>{
     const onAdd = a => console.log("La cantidad es: " + a)
 
-    const [items, setItems] = useState([])
+    const [itemsDetail, setItemsDetail] = useState([])
     useEffect(()=>{
         
          const test = new Promise((resolve, reject)=>{  
@@ -16,15 +17,9 @@ const ItemListContainer = ({greeting}) =>{
         })
         test.then((a)=>setItems(a))
          }, [])
-
-    /* const pedido = fetch('https://jsonplaceholder.typicode.com/posts')   
-    .then(a => a.json()  )
-    .then(a => console.log(a)  ) */
     return(
         <>
-            <p>{greeting}</p>
-            <ItemCount stock={3} initial={1} onAdd={ onAdd } />
-            <ItemList items={items}/>
+            <ItemDetail itemsDetail={itemsDetail}/>
         </>
     )
 }
