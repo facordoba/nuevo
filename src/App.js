@@ -1,18 +1,29 @@
 import NavBar from "./components/NavBar"
 import "./styles.css"
 import ItemListContainer from "./components/ItemListContainer"
-import { useEffect } from "react"
-import ItemList from "./components/ItemList"
+import {BrowserRouter, Route} from "react-router-dom"
+import ItemDetailContainer from "./components/ItemDetailContainer"
+
 const App = () =>{
 
-  
-
-  
   return(
-    <>
-      <NavBar></NavBar>
-      <ItemListContainer greeting="Hola como estass?"/>
-    </>
+    <BrowserRouter>
+      <NavBar/>
+
+      <Route path="/" exact> 
+        <ItemListContainer greeting="Hola como estass?"/>
+      </Route>
+
+      <Route path="/category/:id" exact> 
+        <ItemListContainer greeting="Hola como estass?"/> 
+      </Route>
+
+      <Route path="/item/:id" exact>
+        <ItemDetailContainer/>
+      </Route>
+
+
+    </BrowserRouter>
   )
 }
 

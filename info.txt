@@ -283,3 +283,28 @@ codigos: 200 - esta todo bien
 
 
 
+ {"id": 2, "title": "Aluminio", "description": "Material escaso", "price": 70, "pictureURL": ""},
+    {"id": 3, "title": "Oro", "description": "El mejor conductor conocido actualmente", "price": 170, "pictureURL": ""},
+    {"id": 4, "title": "Plata", "description": "Dificil de encontrar en mineria", "price": 100, "pictureURL": ""}
+
+
+Enrutadores:
+
+* browserRouter : history Api
+
+* hashRouter : location Api
+
+* memoryRouter : va controlando el historil y la navegacion a travez de un cache propio de react al cual no tenemos acceso
+es una situacion rara. Se usa para todo los lugares en los que la app no esta en entorno navegador, por ej : 
+electron: compilador de html a .exe
+
+* staticRouter : no corre fuera de un navegador. SSR (Server Side Rendering)
+
+con react y js podes hacer una app de escritorio tambien. https://www.electronjs.org/. son paginas web que se compilaron
+con electro y ahora son instalables osea apps
+
+
+Link / NavLink : gerena un link sin recarga
+Route : sirve para mostrar un componente cuando coincide con una URL
+
+

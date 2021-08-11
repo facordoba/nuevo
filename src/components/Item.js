@@ -1,17 +1,15 @@
-import {useState} from "react"
+
+import { Link } from "react-router-dom"
 
 const Item = ({item})=>{
-    const [detail, setDetail] = useState("")
-    
-    const showDetail = ()=>{
-        setDetail(item.description)
-    }
     return(
-        <>
-            <li> {item.title} </li>
-            <button onClick={showDetail}>Mostrar descripcion</button>
-            <p>{detail}</p>
-        </>
+        <div id="itemBox">
+            <Link to="/item/1">
+             <h1>{item.title}</h1>
+            </Link>
+            <img src={item.pictureURL}></img>
+            <h5>{item.price}</h5>
+        </div>
     )
 }
 export default Item

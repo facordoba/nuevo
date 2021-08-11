@@ -3,10 +3,12 @@ const ItemDetail = ({itemDetail})=>{
         <ul>
                 {itemDetail.map(r=>{
                     return (
-                        <>
-                            <p>{r.price}</p>
+                        <div id="itemDetail">
+                            <p>{r.id}</p>
+                            <p>{r.title}</p>
                             <p>{r.description}</p>
-                        </>
+                            <p>{r.price}</p>
+                        </div>
                 )})}
                 
             </ul>

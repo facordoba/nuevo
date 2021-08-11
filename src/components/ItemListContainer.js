@@ -3,23 +3,42 @@ import { useEffect } from "react"
 import { useState } from "react"
 import  mock from "./mock.json"
 import ItemList from "./ItemList"
-const ItemListContainer = ({greeting}) =>{
-    const onAdd = a => console.log("La cantidad es: " + a)
+import  {useParams} from "react-router-dom"
 
+
+const ItemListContainer = ({greeting}) =>{
+    
     const [items, setItems] = useState([])
-    useEffect(()=>{
-        
-         const test = new Promise((resolve, reject)=>{  
-            setTimeout(() => {
-                resolve(mock)
-          }, 2000);
+    
+    const params = useParams()
+        useEffect(()=>{
+            
+            new Promise((resolve, reject)=>{  
+                if(params.id == 1){
+                    setTimeout(() => {
+                        resolve(mock.filter(e => e.category == 1))
+                    }, 2000);
+                }
+                else if(params.id == 2){
+                    setTimeout(() => {
+                        resolve(mock.filter(e => e.category == 2))
+                    }, 2000);
+                }
+                else{
+                    setTimeout(() => {
+                        resolve(mock)
+                    }, 2000);
+                }
+            })
+            .then( a => {setItems(a)} )
+    
         })
-        test.then((a)=>setItems(a))
-         }, [])
+    
 
     /* const pedido = fetch('https://jsonplaceholder.typicode.com/posts')   
     .then(a => a.json()  )
     .then(a => console.log(a)  ) */
+    const onAdd = eventResult => console.log("La cantidad es: " + eventResult)
     return(
         <>
             <p>{greeting}</p>

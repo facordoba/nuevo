@@ -1,15 +1,19 @@
 import CartWidgets from "./CartWidgets"
-import Nav from 'react-bootstrap/Nav'
+import { Link } from "react-router-dom"
 const NavBar = () =>{
     return (
-      <>
-          <nav>
-              <h1>Tienda</h1>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-              <Nav.Link eventKey="link-2">Link</Nav.Link>
+          <header>
+              <Link to="/">
+                 <h1>Tienda</h1>
+              </Link>
+              <nav>
+                <Link to="/category/1">categoria 1</Link>
+                <Link to="/category/2">categoria 2</Link>
+                
+              </nav>
+
               <CartWidgets/>
-          </nav>
-      </>
+          </header>
     )
 }
 

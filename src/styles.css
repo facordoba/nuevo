@@ -1,6 +1,24 @@
-nav{
+header{
  display: flex;
  flex-direction: row;
  justify-content: space-between;
  margin: 3vh;
+}
+
+#itemBox{
+ background-color: green;   
+ width: 40vh;
+ margin: 1rem;
+}
+#itemBox img{
+    width: 30vh;
+}
+
+#itemDetail{
+    margin: 2vh;
+    border: solid;
+    width: 40vh;
+}
+#itemDetail p{
+    padding-left: 2vh;
 }
