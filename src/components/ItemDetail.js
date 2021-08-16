@@ -1,17 +1,20 @@
-const ItemDetail = ({itemDetail})=>{
+import ItemCount from "./ItemCount"
+
+const ItemDetail = ({itemDetail}) => {
+    /* console.log(onAdd) */
+    const onAdd = (amount) => {
+       
+    }
+   
     return (
         <ul>
-                {itemDetail.map(r=>{
-                    return (
-                        <div id="itemDetail">
-                            <p>{r.id}</p>
-                            <p>{r.title}</p>
-                            <p>{r.description}</p>
-                            <p>{r.price}</p>
-                        </div>
-                )})}
-                
-            </ul>
+            <p>{itemDetail.title}</p>
+            <p>{itemDetail.description}</p>
+            <p>{itemDetail.price}</p>
+            <ItemCount stock={parseInt(itemDetail.stock)} initial={1} onAdd={onAdd}></ItemCount>
+            <div id="buttonDiv"></div>
+        </ul>
     )
+
 }
 export default ItemDetail

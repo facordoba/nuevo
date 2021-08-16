@@ -38,11 +38,11 @@ const ItemListContainer = ({greeting}) =>{
     /* const pedido = fetch('https://jsonplaceholder.typicode.com/posts')   
     .then(a => a.json()  )
     .then(a => console.log(a)  ) */
-    const onAdd = eventResult => console.log("La cantidad es: " + eventResult)
+    
     return(
         <>
             <p>{greeting}</p>
-            <ItemCount stock={3} initial={1} onAdd={ onAdd } />
+            
             <ItemList items={items}/>
         </>
     )

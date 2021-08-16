@@ -294,7 +294,7 @@ Enrutadores:
 
 * hashRouter : location Api
 
-* memoryRouter : va controlando el historil y la navegacion a travez de un cache propio de react al cual no tenemos acceso
+* memoryRouter : va controlando el historial y la navegacion a travez de un cache propio de react al cual no tenemos acceso
 es una situacion rara. Se usa para todo los lugares en los que la app no esta en entorno navegador, por ej : 
 electron: compilador de html a .exe
 
@@ -308,3 +308,34 @@ Link / NavLink : gerena un link sin recarga
 Route : sirve para mostrar un componente cuando coincide con una URL
 
 
+
+
+
+
+
+target: nodo del dom el cual te esta disparando el evento. En el evento si le pongo e.target me devulve donde hice el
+click o el evento en general
+
+
+
+                                             EVENTO DE REACT
+
+
+ const hacerClick = ()=>{
+   console.log("Estoy haciendo click")
+ }
+
+ return(
+   <>
+    <button onClick={hacerClick}>
+      click
+    </button>
+   </>
+ )
+
+
+ 
+
+
+
+    

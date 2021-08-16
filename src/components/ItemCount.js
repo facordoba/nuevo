@@ -14,18 +14,19 @@ const ItemCount = ({stock, initial, onAdd}) =>{
     const removeCounter =()=>{
         if (counter > initial){
             setCounter(counter - 1 ) }}
-        
-    const listo = ()=> onAdd(counter)
 
-    const reset = ()=> setCounter(initial)
-
+    const resetCounter = ()=> setCounter(initial)
+    
+    const stateUp = ()=>{
+        onAdd(counter)
+    }
     return(
         <>
             <p>counter:  {counter}  </p>
             <button onClick={addCounter}>Sumar</button>
             <button onClick={removeCounter}>Restar</button>
-            <button onClick={listo}>Agregar</button>
-            <button onClick={reset}>Reset</button>
+            <button onClick={stateUp}>Agregar</button>
+            <button onClick={resetCounter}>Reset</button>
         </>
     )
 }
