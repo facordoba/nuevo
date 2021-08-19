@@ -334,6 +334,19 @@ click o el evento en general
  )
 
 
+
+
+
+
+
+
+ -----------------------------------------------
+ Clase 10:
+
+ me conviene siempre poner en el provider(value) cosas que esten en estados para que react se redibuje cada vez que el 
+ estado cambia. Si yo pongo cosas es una constante react jamas se redibuja
+
+
  
 
 
