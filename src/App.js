@@ -4,6 +4,7 @@ import ItemListContainer from "./components/ItemListContainer"
 import {BrowserRouter, Route} from "react-router-dom"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import CustomProvider from "./components/CartContext"
+import Cart from "./components/Cart"
 
 const App = () =>{
   
@@ -26,6 +27,8 @@ const App = () =>{
         <Route path="/item/:id" exact>
           <ItemDetailContainer/>
         </Route>
+
+        <Route path="/cart" component={Cart} />
 
       </BrowserRouter>
     </CustomProvider>  

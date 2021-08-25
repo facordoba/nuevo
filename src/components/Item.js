@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import contexto from "./CartContext"
 
 const Item = ({item})=>{
-    const resultado = useContext(contexto)
-    console.log(resultado.nombre)
+   /*  const resultado = useContext(contexto)
+    console.log(resultado.nombre) */
     
     return(
         <div id="itemBox">
@@ -13,8 +13,8 @@ const Item = ({item})=>{
             </Link>
             <img src={item.pictureURL}></img>
             <h5>{item.price}</h5>
-            <p>{resultado.nombre}</p>
-            <button onClick={resultado.cambiarNombre}>Cambiar nombre</button>
+            {/* <p>{resultado.nombre}</p>
+            <button onClick={resultado.cambiarNombre}>Cambiar nombre</button> */}
         </div>
     )
 }

@@ -7,36 +7,45 @@ export const {Consumer, Provider} = contexto
 
 const CustomProvider = ({children})=>{
 
+  const [cart, setCart] = useState([])
+  
+  const addItem = (item => {
+    setCart([...cart,item])
+  })
+  
+  const removeItem = (itemId) => {
+    console.log(itemId)
+}
+
+const clear = () => {
+    console.log("Clear")
+}
+
+const isInCart = (id) => {}
+  
+  const valueProvider = {cart, addItem, removeItem, clear  }
+  
+  return(
+    <Provider value={valueProvider}>
+            {children}
+        </Provider>
+    )
+  }
+  export default CustomProvider
+  
+  
+  
+  //Consumer : no lo vamos a ver en es curso. Vamos a usar "useContext" : consume el valor del contexto
+  //Provider : cambiarle el valor a la variable contexto
+  
+  
+  
+  
+  
   /* const [resultado, setResultado] = useState("Marta")
   const cambiarNombre = ()=>{
     setResultado("Charly")
   } */
-  const [item, setItem] = useState()
-
-  const addItem = (cc) => {
-    setItem(cc)
-  }
-
-  const valueProvider = {
-    /* nombre : resultado,
-    cambiarNombre : cambiarNombre, */
-    cantidad : item,
-    addItem
-    }
   
-    return(
-        <Provider value={valueProvider}>
-            {children}
-        </Provider>
-    )
-}
-export default CustomProvider
-
-
-
-//Consumer : no lo vamos a ver en es curso. Vamos a usar "useContext" : consume el valor del contexto
-//Provider : cambiarle el valor a la variable contexto
-
-
-
-
+  /* nombre : resultado,
+  cambiarNombre : cambiarNombre, */
